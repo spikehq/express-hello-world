@@ -12,6 +12,14 @@ app.get('/', (req, res) => {
     .end()
 })
 
+app.get('/new', (req, res) => {
+  console.log('[hello-world] root handler called')
+  res
+    .set('x-powered-by', 'cyclic.sh')
+    .send('<h1>NEW Hello World!</h1>')
+    .end()
+})
+
 app.use('*', (req,res) => {
   console.log('[hello-world] Star handler called')
   let version = 'unknown'
